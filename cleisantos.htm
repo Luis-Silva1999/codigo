@@ -1,0 +1,638 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clei Vision - Portfólio de Cleilson Santos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1c2526, #2c3e50);
+            color: #ffffff;
+            line-height: 1.8;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+            position: relative;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: #f4d03f;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .sub-logo {
+            font-size: 22px;
+            color: #bdc3c7;
+            font-weight: 400;
+            font-style: italic;
+        }
+        .intro, .trajectory, .essays {
+            padding: 100px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .intro-text, .trajectory-text {
+            max-width: 550px;
+            text-align: left;
+            margin-right: 50px;
+            font-size: 18px;
+        }
+        h1, h2 {
+            color: #f4d03f;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .intro-photo, .trajectory-photo {
+            width: 300px;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 5px solid #f4d03f;
+            object-fit: cover; /* Para fotos de perfil/trajetória */
+        }
+        .intro-photo:hover, .trajectory-photo:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(244, 208, 63, 0.7);
+        }
+        .skills {
+            padding: 100px 20px;
+            background: #2c3e50;
+            position: relative;
+            overflow: hidden;
+        }
+        .skills::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: radial-gradient(circle, rgba(244, 208, 63, 0.15) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .skill-item {
+            background: rgba(52, 73, 94, 0.95);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(244, 208, 63, 0.3);
+        }
+        .skill-item h3 {
+            color: #f4d03f;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .essays-grid {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 20px auto 0;
+        }
+        .essays-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            flex: 1;
+        }
+        .essay-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .essay-photo {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 3px solid #f4d03f;
+            object-fit: contain; /* Para não cortar a imagem */
+            background: #1a1a1a;
+            padding: 5px;
+        }
+        .essay-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(244, 208, 63, 0.6);
+        }
+        .essay-description {
+            font-size: 14px;
+            color: #bdc3c7;
+            text-align: left;
+            line-height: 1.4;
+        }
+        .audiovisual {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            position: relative;
+        }
+        .audiovisual-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: #1a1a1a;
+        }
+        .video-container:hover {
+            transform: scale(1.03); 
+            box-shadow: 0 12px 30px rgba(244, 208, 63, 0.8);
+        }
+        .audiovisual-video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 12px;
+            background: #000;
+        }
+
+        .call-to-action {
+            font-size: 44px;
+            color: #f4d03f;
+            font-weight: 700;
+            margin: 50px 0;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+            animation: pulse 2s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.02); }
+        }
+        .contact-button {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: #fff;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .contact-button:hover {
+            transform: scale(1.12);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.7);
+        }
+        footer {
+            padding: 50px 0;
+            background: #1a1a1a;
+            border-top: 2px solid #34495e;
+            position: relative;
+            overflow: hidden;
+        }
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #f4d03f, #e74c3c, transparent);
+            animation: slide 4s infinite alternate;
+        }
+        @keyframes slide {
+            from { transform: translateX(0%); }
+            to { transform: translateX(50%); } 
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 16px;
+            color: #bdc3c7;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .footer-content a {
+            color: #f4d03f;
+            text-decoration: none;
+            transition: color 0.4s ease;
+        }
+        .footer-content a:hover {
+            color: #e74c3c;
+        }
+        .social-icons {
+            margin-top: 15px;
+            width: 100%;
+        }
+        .social-icons a {
+            color: #bdc3c7;
+            margin: 0 15px;
+            font-size: 24px;
+            transition: color 0.4s ease, transform 0.4s ease;
+        }
+        .social-icons a:hover {
+            color: #f4d03f;
+            transform: scale(1.2);
+        }
+        .trajectory-photos {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .phone-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 5px 0;
+        }
+        
+        .phone-number i {
+            color: #25D366; 
+            font-size: 20px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 48px;
+            }
+            .intro, .trajectory {
+                flex-direction: column;
+                text-align: center;
+            }
+            .intro-text, .trajectory-text {
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            .essays-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .essays-column {
+                gap: 20px;
+            }
+            .essay-photo {
+                max-height: 300px;
+                object-fit: contain;
+            }
+            .call-to-action {
+                font-size: 32px;
+            }
+            .audiovisual-videos {
+                grid-template-columns: 1fr;
+            }
+            .intro-photo, .trajectory-photo {
+                width: 100%;
+                max-width: 300px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 36px;
+            }
+            .sub-logo {
+                font-size: 18px;
+            }
+            .intro, .trajectory, .essays, .skills, .audiovisual {
+                padding: 60px 15px;
+            }
+            .essay-photo {
+                max-height: 250px;
+            }
+            .call-to-action {
+                font-size: 24px;
+                margin: 30px 0;
+            }
+            .contact-button {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">Clei Vision</h1>
+        <p class="sub-logo">Portfólio de Cleilson Santos</p>
+    </header>
+
+    <section class="intro">
+        <div class="intro-text">
+            <h2>Oi, eu sou Cleilson!</h2>
+            <p>Sou fotógrafo e videomaker apaixonado por capturar momentos que vão muito além da imagem, transformo sentimentos, experiências e histórias em memórias únicas e inesquecíveis.</p>
+            <p>Minha jornada começou há alguns anos como guia turístico, onde descobri minha verdadeira vocação: eternizar cada detalhe, cada sorriso, cada cenário de forma autêntica e surpreendente.</p>
+            <p>Aquilo que começou como um hobby rapidamente se transformou em uma profissão que me desafia e inspira todos os dias.</p>
+            <p>Sou uma pessoa carismática, simpática e com um olhar diferenciado consigo enxergar beleza e significado nos detalhes que muitas vezes passam despercebidos.</p>
+            <p>Para mim, cada clique é uma oportunidade de contar uma história, de transmitir emoção e de criar conexões duradouras entre pessoas e momentos.</p>
+        </div>
+        <img width="300" height="400" loading="lazy" 
+             src="https://drive.google.com/uc?id=18S1KSwKwMwYmXqi-KcnihqRVMFRcxdaS" 
+             data-fallback-id="18S1KSwKwMwYmXqi-KcnihqRVMFRcxdaS"
+             alt="Foto de Cleilson Santos" 
+             class="intro-photo drive-img">
+    </section>
+
+    <section class="trajectory">
+        <div class="trajectory-text">
+            <h2>Trajetória Profissional:</h2>
+            <p>Ao longo da minha trajetória, venho aprimorando minhas habilidades em fotografia e videomaker, explorando diferentes estilos, técnicas e perspectivas.</p>
+            <p>Cada projeto é uma nova oportunidade de inovar, surpreender e superar expectativas.</p>
+            <p>Meu objetivo é que cada imagem e cada vídeo não apenas mostrem, mas despertem sentimentos, inspirem e marquem quem os contempla.</p>
+            <ul>
+                <li><strong>Formação Inicial:</strong> Experiência como Guia Turístico (2022-2025)</li>
+                <li><strong>Transição Profissional:</strong> Fotógrafo e Videomaker Autodidata (2024-atual)</li>
+            </ul>
+        </div>
+        <div class="trajectory-photos">
+            <img loading="lazy" width="300" height="400" 
+                 src="https://drive.google.com/uc?id=1hvT4EXeAeu4DoZWJOIbSSYawTC5w4ZAy" 
+                 data-fallback-id="1hvT4EXeAeu4DoZWJOIbSSYawTC5w4ZAy"
+                 alt="Foto 1 da trajetória profissional de Cleilson" 
+                 class="trajectory-photo drive-img">
+            <img loading="lazy" width="300" height="400" 
+                 src="https://drive.google.com/uc?id=1cYd49Gz-X9iR9sLOd0ZvuFiJ7wLf8S_Z" 
+                 data-fallback-id="1cYd49Gz-X9iR9sLOd0ZvuFiJ7wLf8S_Z"
+                 alt="Foto 2 da trajetória profissional de Cleilson" 
+                 class="trajectory-photo drive-img">
+            <img loading="lazy" width="300" height="400" 
+                 src="https://drive.google.com/uc?id=1ZuINo2piHPdytlSGkDryy5nz-iCZFZkI" 
+                 data-fallback-id="1ZuINo2piHPdytlSGkDryy5nz-iCZFZkI"
+                 alt="Foto 3 da trajetória profissional de Cleilson" 
+                 class="trajectory-photo drive-img">
+        </div>
+    </section>
+
+    <section class="skills">
+        <h2>O que eu posso fazer por você?</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h3>Fotografia Profissional</h3>
+                <p>Captura de momentos únicos com técnicas avançadas e composição criativa.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Videomaker Artístico</h3>
+                <p>Produção de vídeos narrativos com edição impecável e storytelling visual.</p>
+            </div>
+            <div class="skill-item">
+                <h3>Edição e Pós-Produção</h3>
+                <p>Transformação de imagens e vídeos em obras de arte com ferramentas de ponta.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="essays">
+        <h2>Ensaios</h2>
+        <div class="essays-grid">
+            <div class="essays-column">
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1BsfhddjyuiQj73vkjcizPiTKnu3QYjqX" 
+                         data-fallback-id="1BsfhddjyuiQj73vkjcizPiTKnu3QYjqX"
+                         alt="Ensaio de casal nos Lencóis Maranhenses" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Ensaio de casal nos Lencóis Maranhenses onde a intensidade do amor encontra a imensidão da paisagem.</p>
+                </div>
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1y37LVLKi6uZf6cH6W475LmkGbymU4kHn" 
+                         data-fallback-id="1y37LVLKi6uZf6cH6W475LmkGbymU4kHn"
+                         alt="Sessão de retratos no centro histórico" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Sessão de retratos no centro histórico, destacando a essência vibrante da cidade com detalhes arquitetônicos.</p>
+                </div>
+            </div>
+            <div class="essays-column">
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1BOiEe7rPuw7YXvoF1FdnpSnu21QVZ18w" 
+                         data-fallback-id="1BOiEe7rPuw7YXvoF1FdnpSnu21QVZ18w"
+                         alt="Ensaio de família com união e alegria" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Ensaio de família que transmitem união e alegria.</p>
+                </div>
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1s54nrWRvz_8nQlVsTzhYD3eNBQWLifQ1" 
+                         data-fallback-id="1s54nrWRvz_8nQlVsTzhYD3eNBQWLifQ1"
+                         alt="Ensaio de casal em cenário natural" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Ensaio de casal, capturando a conexão e o amor em um cenário natural.</p>
+                </div>
+            </div>
+            <div class="essays-column">
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1PdJwesJt_cNcIw-oWwh9HvNL4Qr_YBBf" 
+                         data-fallback-id="1PdJwesJt_cNcIw-oWwh9HvNL4Qr_YBBf"
+                         alt="Ensaio de viagem capturando alegria e liberdade" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Ensaio de viagem, capturando a alegria e a liberdade da alma.</p>
+                </div>
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1kNdPJ-dFbZ7Cm8hUTcXxxH_uR_-6FWqj" 
+                         data-fallback-id="1kNdPJ-dFbZ7Cm8hUTcXxxH_uR_-6FWqj"
+                         alt="Sessão fotográfica de gestante em ambiente sereno" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Sessão fotográfica de gestante, capturando a beleza e a emoção da espera em um ambiente sereno.</p>
+                </div>
+            </div>
+            <div class="essays-column">
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1iKfX_ZMOz_VkZD2h6dbd4lfVA4rOVs2P" 
+                         data-fallback-id="1iKfX_ZMOz_VkZD2h6dbd4lfVA4rOVs2P"
+                         alt="Ensaio de viagem explorando paisagens exóticas" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Ensaio de viagem, explorando paisagens exóticas e capturando a essência da aventura.</p>
+                </div>
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1EO6ytZCu4KKKbSFD9D7ut72ZysVgMqZQ" 
+                         data-fallback-id="1EO6ytZCu4KKKbSFD9D7ut72ZysVgMqZQ"
+                         alt="Sessão de retratos Artísticos explorando identidade e estilo" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Sessão de retratos Artísticos, explorando a identidade e o estilo através da luz e da composição contemporânea.</p>
+                </div>
+            </div>
+            <div class="essays-column">
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1Htjk3isr4iWYilupO9RqtaiKegoGD56I" 
+                         data-fallback-id="1Htjk3isr4iWYilupO9RqtaiKegoGD56I"
+                         alt="Fotografia de Evento Cultural" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Fotografia de Evento Cultural: Capturando a energia, a tradição e a grandiosidade das celebrações populares.</p>
+                </div>
+                <div class="essay-item">
+                    <img loading="lazy" width="300" height="200" 
+                         src="https://drive.google.com/uc?id=1bwmZLs103B71z8jrh9JcMr26puA43IgH" 
+                         data-fallback-id="1bwmZLs103B71z8jrh9JcMr26puA43IgH"
+                         alt="Sessão de retratos artísticos com luzes e sombras" 
+                         class="essay-photo drive-img">
+                    <p class="essay-description">Sessão de retratos artísticos, explorando luzes e sombras para criar imagenes impactantes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="audiovisual">
+        <h2>Vídeos dos Ensaios</h2>
+        <div class="audiovisual-videos">
+            
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/18Ij9vVIejvkQ47rXjOm1nrUUcpEN41V2/preview" 
+                        class="audiovisual-video-iframe" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy"
+                        title="Vídeo de Ensaio 1">
+                </iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1Cibv_ZOX0ZBPFWXYvlhOy0jIWrSrIB7v/preview" 
+                        class="audiovisual-video-iframe" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy"
+                        title="Vídeo de Ensaio 2">
+                </iframe>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1eIfQ4NBoCEt9OhpJqMjVdIYgKalCSWPB/preview" 
+                        class="audiovisual-video-iframe" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy"
+                        title="Vídeo de Ensaio 3">
+                </iframe>
+            </div>
+        </div>
+        
+        <p>Se você procura alguém que combine profissionalismo, sensibilidade artística e criatividade para transformar suas ideias em experiências visuais memoráveis, você está no lugar certo.</p>
+        <p>Vamos juntos transformar seus momentos em histórias que serão lembradas para sempre.</p>
+        <div class="call-to-action">Entre em Contato</div>
+        <a href="https://wa.me/5598981534901" class="contact-button">Fale Comigo</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Cleilson Santos</p>
+            <p><a href="mailto:scleilson09@gmail.com">scleilson09@gmail.com</a></p>
+            <div class="phone-number">
+                <i class="fab fa-whatsapp"></i>
+                <span>(98) 98153-4901</span>
+            </div>
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="Acesse o Facebook de Cleilson Santos"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="Acesse o Instagram de Cleilson Santos"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="Acesse o canal de Cleilson Santos no YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" aria-label="Acesse o TikTok de Cleilson Santos"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função de Fallback para tentar carregar imagens do Google Drive em navegadores restritivos (como Safari)
+        document.addEventListener('DOMContentLoaded', () => {
+            const driveImages = document.querySelectorAll('.drive-img');
+            
+            driveImages.forEach(img => {
+                // 1. Ouve o evento de erro (a imagem falhou ao carregar)
+                img.addEventListener('error', () => {
+                    const fileId = img.getAttribute('data-fallback-id');
+                    
+                    if (fileId) {
+                        // 2. Tenta a URL de preview/visualização que é menos restritiva
+                        const fallbackUrl = `https://drive.google.com/thumbnail?id=${fileId}&sz=w800-h800`;
+                        
+                        // 3. Verifica se a imagem ainda não está tentando o fallback para evitar loops
+                        if (img.src.indexOf('thumbnail') === -1) {
+                            console.log(`Tentando fallback para a imagem: ${fileId}`);
+                            img.src = fallbackUrl;
+                            
+                            // Adiciona um listener de erro para a segunda tentativa
+                            img.addEventListener('error', () => {
+                                console.error(`Falha total ao carregar a imagem do Drive: ${fileId}. Verifique permissões.`);
+                                // Define uma imagem substituta simples em caso de falha total
+                                img.style.backgroundColor = '#666'; 
+                                img.src = 'data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f4d03f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera-off"><line x1="1" y1="1" x2="23" y2="23"></line><path d="M21 21H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3m6 0h2l2-3h3a2 2 0 0 1 2 2v8M11 11a3 3 0 1 1-6 0"></path></svg>';
+                                img.style.objectFit = 'contain';
+                            }, { once: true });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
