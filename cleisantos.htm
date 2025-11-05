@@ -1,637 +1,1399 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clei Vision - Portfólio de Cleilson Santos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>CleiSantos - Fotógrafo Profissional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
-            box-sizing: border-box;
-        }
-        
-        body {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1c2526, #2c3e50);
-            color: #ffffff;
-            line-height: 1.8;
-            text-align: center;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #f4d03f;
+            --light: #ecf0f1;
+            --dark: #0f3460;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            line-height: 1.6;
             overflow-x: hidden;
         }
+
+        /* Header e Navegação */
         header {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
-            position: relative;
-            animation: fadeIn 1.2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 72px;
-            font-weight: 700;
-            color: #f4d03f;
-            text-transform: uppercase;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        .sub-logo {
-            font-size: 22px;
-            color: #bdc3c7;
-            font-weight: 400;
-            font-style: italic;
-        }
-        .intro, .trajectory, .essays {
-            padding: 100px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .intro-text, .trajectory-text {
-            max-width: 550px;
-            text-align: left;
-            margin-right: 50px;
-            font-size: 18px;
-        }
-        h1, h2 {
-            color: #f4d03f;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-        .intro-photo, .trajectory-photo {
-            width: 300px;
-            height: 400px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 5px solid #f4d03f;
-            object-fit: cover; /* Para fotos de perfil/trajetória */
-        }
-        .intro-photo:hover, .trajectory-photo:hover {
-            transform: scale(1.08) rotate(2deg);
-            box-shadow: 0 15px 35px rgba(244, 208, 63, 0.7);
-        }
-        .skills {
-            padding: 100px 20px;
-            background: #2c3e50;
-            position: relative;
-            overflow: hidden;
-        }
-        .skills::before {
-            content: '';
-            position: absolute;
-            top: -60%;
-            left: -60%;
-            width: 220%;
-            height: 220%;
-            background: radial-gradient(circle, rgba(244, 208, 63, 0.15) 0%, transparent 70%);
-            animation: rotate 25s linear infinite;
-        }
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .skill-item {
-            background: rgba(52, 73, 94, 0.95);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .skill-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(244, 208, 63, 0.3);
-        }
-        .skill-item h3 {
-            color: #f4d03f;
-            margin-bottom: 15px;
-            font-size: 22px;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .essays-grid {
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-            max-width: 1200px;
-            margin: 20px auto 0;
-        }
-        .essays-column {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            flex: 1;
-        }
-        .essay-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .essay-photo {
+            background-color: rgba(26, 26, 46, 0.95);
+            color: white;
+            padding: 1rem 2rem;
+            position: fixed;
             width: 100%;
-            height: auto;
-            max-height: 250px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 3px solid #f4d03f;
-            object-fit: contain; /* Para não cortar a imagem */
-            background: #1a1a1a;
-            padding: 5px;
-        }
-        .essay-photo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(244, 208, 63, 0.6);
-        }
-        .essay-description {
-            font-size: 14px;
-            color: #bdc3c7;
-            text-align: left;
-            line-height: 1.4;
-        }
-        .audiovisual {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-            position: relative;
-        }
-        .audiovisual-videos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto 60px;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            background: #1a1a1a;
-        }
-        .video-container:hover {
-            transform: scale(1.03); 
-            box-shadow: 0 12px 30px rgba(244, 208, 63, 0.8);
-        }
-        .audiovisual-video-iframe {
-            position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            border-radius: 12px;
-            background: #000;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        .call-to-action {
-            font-size: 44px;
-            color: #f4d03f;
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
             font-weight: 700;
-            margin: 50px 0;
-            text-transform: uppercase;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
-            animation: pulse 2s infinite alternate;
+            letter-spacing: 2px;
         }
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.02); }
+
+        .logo span {
+            color: var(--accent);
         }
-        .contact-button {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: #fff;
-            padding: 18px 50px;
-            border: none;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            text-transform: uppercase;
-            font-family: 'Montserrat', sans-serif;
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 2rem;
+        }
+
+        nav a {
+            color: white;
             text-decoration: none;
-            display: inline-block;
-        }
-        .contact-button:hover {
-            transform: scale(1.12);
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.7);
-        }
-        footer {
-            padding: 50px 0;
-            background: #1a1a1a;
-            border-top: 2px solid #34495e;
+            font-weight: 500;
+            transition: all 0.3s;
             position: relative;
-            overflow: hidden;
+            padding: 0.5rem 0;
         }
-        footer::after {
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a.active {
+            color: var(--accent);
+        }
+
+        nav a.active::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, #f4d03f, #e74c3c, transparent);
-            animation: slide 4s infinite alternate;
+            height: 2px;
+            background-color: var(--accent);
+            animation: slideIn 0.3s ease;
         }
-        @keyframes slide {
-            from { transform: translateX(0%); }
-            to { transform: translateX(50%); } 
+
+        @keyframes slideIn {
+            from { width: 0; }
+            to { width: 100%; }
         }
-        .footer-content {
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent);
+        }
+
+        /* Conteúdo Principal */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 160px);
+        }
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            font-size: 16px;
-            color: #bdc3c7;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            padding: 2rem;
         }
-        .footer-content a {
-            color: #f4d03f;
-            text-decoration: none;
-            transition: color 0.4s ease;
+
+        .page {
+            display: none;
+            animation: fadeIn 0.8s ease;
         }
-        .footer-content a:hover {
-            color: #e74c3c;
+
+        .page.active {
+            display: block;
         }
-        .social-icons {
-            margin-top: 15px;
-            width: 100%;
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .social-icons a {
-            color: #bdc3c7;
-            margin: 0 15px;
-            font-size: 24px;
-            transition: color 0.4s ease, transform 0.4s ease;
-        }
-        .social-icons a:hover {
-            color: #f4d03f;
-            transform: scale(1.2);
-        }
-        .trajectory-photos {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .phone-number {
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/random/1600x900/?photography,portrait') no-repeat center center/cover;
+            color: white;
+            height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin: 5px 0;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
         }
-        
-        .phone-number i {
-            color: #25D366; 
-            font-size: 20px;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), transparent);
+            opacity: 0.7;
         }
-        
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: textGlow 3s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 10px rgba(244, 208, 63, 0.5); }
+            to { text-shadow: 0 0 20px rgba(244, 208, 63, 0.8); }
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #e67e22);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #e67e22, var(--accent));
+        }
+
+        /* Seções Gerais */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--accent);
+            display: inline-block;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            border-radius: 2px;
+        }
+
+        /* Seção Sobre */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--light);
+        }
+
+        .about-image {
+            flex: 0 0 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Seção Trajetória */
+        .trajectory-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4rem;
+            border-radius: 20px;
+            margin-bottom: 6rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .trajectory-section h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trajectory-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            color: var(--light);
+        }
+
+        .trajectory-list {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            list-style: none;
+        }
+
+        .trajectory-list li {
+            background: rgba(244, 208, 63, 0.1);
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+
+        .trajectory-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .trajectory-list strong {
+            color: var(--accent);
+        }
+
+        /* Seção Habilidades */
+        .skills-section {
+            margin-bottom: 4rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(244, 208, 63, 0.2);
+            border-color: var(--accent);
+        }
+
+        .skill-item h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-item p {
+            color: var(--light);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Página Portfólio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s;
+            position: relative;
+            cursor: pointer;
+            background: var(--secondary);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(244, 208, 63, 0.2);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(22, 33, 62, 0.95));
+            color: white;
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        /* Página Trabalhos */
+        .works-filter {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--light);
+            transition: all 0.3s;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .work-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: var(--secondary);
+            transition: all 0.4s;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(244, 208, 63, 0.2);
+        }
+
+        .work-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .work-content {
+            padding: 2rem;
+        }
+
+        .work-content h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .work-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .work-tag {
+            background: rgba(244, 208, 63, 0.2);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(244, 208, 63, 0.3);
+        }
+
+        /* Seção de Vídeos */
+        .videos-section {
+            margin-top: 4rem;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .video-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: var(--secondary);
+            transition: all 0.4s;
+        }
+
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(244, 208, 63, 0.2);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-content {
+            padding: 2rem;
+        }
+
+        .video-content h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .video-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* Página Contato */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info h3 {
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-icon {
+            background: linear-gradient(135deg, var(--accent), #e67e22);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form h3 {
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            color: var(--light);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 10px rgba(244, 208, 63, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #e67e22);
+            color: var(--primary);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(244, 208, 63, 0.4);
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            max-width: 900px;
+            width: 100%;
+            background: var(--secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border: 2px solid var(--accent);
+        }
+
+        .modal-close:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-info {
+            padding: 2rem;
+        }
+
+        .modal-info h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .modal-info p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 48px;
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
             }
-            .intro, .trajectory {
+
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav li {
+                margin: 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-section {
                 flex-direction: column;
                 text-align: center;
             }
-            .intro-text, .trajectory-text {
-                margin-right: 0;
-                margin-bottom: 40px;
+
+            .about-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
             }
-            .essays-grid {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .essays-column {
-                gap: 20px;
-            }
-            .essay-photo {
-                max-height: 300px;
-                object-fit: contain;
-            }
-            .call-to-action {
-                font-size: 32px;
-            }
-            .audiovisual-videos {
+
+            .works-grid, .portfolio-grid, .videos-grid {
                 grid-template-columns: 1fr;
             }
-            .intro-photo, .trajectory-photo {
-                width: 100%;
-                max-width: 300px;
-                height: 350px;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 36px;
+            .contact-container {
+                grid-template-columns: 1fr;
             }
-            .sub-logo {
-                font-size: 18px;
-            }
-            .intro, .trajectory, .essays, .skills, .audiovisual {
-                padding: 60px 15px;
-            }
-            .essay-photo {
-                max-height: 250px;
-            }
-            .call-to-action {
-                font-size: 24px;
-                margin: 30px 0;
-            }
-            .contact-button {
-                padding: 15px 30px;
-                font-size: 16px;
+
+            .section-title h2 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1 class="logo">Clei Vision</h1>
-        <p class="sub-logo">Portfólio de Cleilson Santos</p>
+        <div class="header-container">
+            <div class="logo">CLEI<span>SANTOS</span></div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="portfolio">Portfólio</a></li>
+                    <li><a href="#" class="nav-link" data-page="trabalhos">Trabalhos</a></li>
+                    <li><a href="#" class="nav-link" data-page="contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="intro">
-        <div class="intro-text">
-            <h2>Oi, eu sou Cleilson!</h2>
-            <p>Sou fotógrafo e videomaker apaixonado por capturar momentos que vão muito além da imagem, transformo sentimentos, experiências e histórias em memórias únicas e inesquecíveis.</p>
-            <p>Minha jornada começou há alguns anos como guia turístico, onde descobri minha verdadeira vocação: eternizar cada detalhe, cada sorriso, cada cenário de forma autêntica e surpreendente.</p>
-            <p>Aquilo que começou como um hobby rapidamente se transformou em uma profissão que me desafia e inspira todos os dias.</p>
-            <p>Sou uma pessoa carismática, simpática e com um olhar diferenciado consigo enxergar beleza e significado nos detalhes que muitas vezes passam despercebidos.</p>
-            <p>Para mim, cada clique é uma oportunidade de contar uma história, de transmitir emoção e de criar conexões duradouras entre pessoas e momentos.</p>
-        </div>
-        <img width="300" height="400" loading="lazy" 
-             src="https://drive.google.com/uc?id=18S1KSwKwMwYmXqi-KcnihqRVMFRcxdaS" 
-             data-fallback-id="18S1KSwKwMwYmXqi-KcnihqRVMFRcxdaS"
-             alt="Foto de Cleilson Santos" 
-             class="intro-photo drive-img">
-    </section>
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Página Home -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>CLEI SANTOS</h1>
+                    <p>Fotógrafo & Videomaker | Transformando momentos em memórias eternas através da minha lente</p>
+                    <p>Especialista em ensaios e eventos com mais de 1 anos de experiência</p>
+                    <a href="#" class="btn nav-link" data-page="portfolio">Ver Portfólio</a>
+                </div>
+            </div>
+        </section>
 
-    <section class="trajectory">
-        <div class="trajectory-text">
-            <h2>Trajetória Profissional:</h2>
-            <p>Ao longo da minha trajetória, venho aprimorando minhas habilidades em fotografia e videomaker, explorando diferentes estilos, técnicas e perspectivas.</p>
-            <p>Cada projeto é uma nova oportunidade de inovar, surpreender e superar expectativas.</p>
-            <p>Meu objetivo é que cada imagem e cada vídeo não apenas mostrem, mas despertem sentimentos, inspirem e marquem quem os contempla.</p>
-            <ul>
-                <li><strong>Formação Inicial:</strong> Experiência como Guia Turístico (2022-2025)</li>
-                <li><strong>Transição Profissional:</strong> Fotógrafo e Videomaker Autodidata (2024-atual)</li>
-            </ul>
-        </div>
-        <div class="trajectory-photos">
-            <img loading="lazy" width="300" height="400" 
-                 src="https://drive.google.com/uc?id=1hvT4EXeAeu4DoZWJOIbSSYawTC5w4ZAy" 
-                 data-fallback-id="1hvT4EXeAeu4DoZWJOIbSSYawTC5w4ZAy"
-                 alt="Foto 1 da trajetória profissional de Cleilson" 
-                 class="trajectory-photo drive-img">
-            <img loading="lazy" width="300" height="400" 
-                 src="https://drive.google.com/uc?id=1cYd49Gz-X9iR9sLOd0ZvuFiJ7wLf8S_Z" 
-                 data-fallback-id="1cYd49Gz-X9iR9sLOd0ZvuFiJ7wLf8S_Z"
-                 alt="Foto 2 da trajetória profissional de Cleilson" 
-                 class="trajectory-photo drive-img">
-            <img loading="lazy" width="300" height="400" 
-                 src="https://drive.google.com/uc?id=1ZuINo2piHPdytlSGkDryy5nz-iCZFZkI" 
-                 data-fallback-id="1ZuINo2piHPdytlSGkDryy5nz-iCZFZkI"
-                 alt="Foto 3 da trajetória profissional de Cleilson" 
-                 class="trajectory-photo drive-img">
-        </div>
-    </section>
+        <!-- Página Portfólio -->
+        <section id="portfolio" class="page">
+            <div class="container">
+                <div class="section-title">
+                    <h2>MEU PORTFÓLIO</h2>
+                </div>
 
-    <section class="skills">
-        <h2>O que eu posso fazer por você?</h2>
-        <div class="skills-grid">
-            <div class="skill-item">
-                <h3>Fotografia Profissional</h3>
-                <p>Captura de momentos únicos com técnicas avançadas e composição criativa.</p>
+                <!-- Seção Sobre -->
+                <div class="about-section">
+                    <div class="about-text">
+                        <h2>OI, EU SOU CLEILSON!</h2>
+                        <p>Sou fotógrafo e videomaker apaixonado por capturar momentos que vão muito além da imagem, transformo sentimentos, experiências e histórias em memórias únicas e inesquecíveis.</p>
+                        <p>Minha jornada começou há alguns anos como guia turístico, onde descobri minha verdadeira vocação: eternizar cada detalhe, cada sorriso, cada cenário de forma autêntica e surpreendente.</p>
+                        <p>Aquilo que começou como um hobby rapidamente se transformou em uma profissão que me desafia e inspira todos os dias.</p>
+                        <p>Sou uma pessoa carismática, simpática e com um olhar diferenciado consigo enxergar beleza e significado nos detalhes que muitas vezes passam despercebidos.</p>
+                        <p>Para mim, cada clique é uma oportunidade de contar uma história, de transmitir emoção e de criar conexões duradouras entre pessoas e momentos.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="Imagem/clei1.png" alt="Cleilson Santos - Fotógrafo">
+                    </div>
+                </div>
+
+                <!-- Seção Trajetória -->
+                <div class="trajectory-section">
+                    <h2>TRAJETÓRIA PROFISSIONAL</h2>
+                    <p>Ao longo da minha trajetória, venho aprimorando minhas habilidades em fotografia e videomaker, explorando diferentes estilos, técnicas e perspectivas.</p>
+                    <p>Cada projeto é uma nova oportunidade de inovar, surpreender e superar expectativas. Meu objetivo é que cada imagem e cada vídeo não apenas mostrem, mas despertem sentimentos, inspirem e marquem quem os contempla.</p>
+                    <ul class="trajectory-list">
+                        <li><strong>Formação Inicial:</strong> Experiência como Guia Turístico (2022-2025)</li>
+                        <li><strong>Transição Profissional:</strong> Fotógrafo e Videomaker Autodidata (2023-atual)</li>
+                    </ul>
+                </div>
+
+                <!-- Seção Habilidades -->
+                <div class="skills-section">
+                    <div class="section-title">
+                        <h2>O QUE EU POSSO FAZER POR VOCÊ?</h2>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <h3>Fotografia Profissional</h3>
+                            <p>Captura de momentos únicos com técnicas avançadas e composição criativa.</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>Videomaker Artístico</h3>
+                            <p>Produção de vídeos narrativos com edição impecável e storytelling visual.</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>Edição e Pós-Produção</h3>
+                            <p>Transformação de imagens e vídeos em obras de arte com ferramentas de ponta.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Galeria do Portfólio -->
+                <div class="section-title">
+                    <h2>GALERIA DE TRABALHOS</h2>
+                </div>
+                <div class="portfolio-grid">
+                    <!-- Itens do portfólio serão adicionados via JavaScript -->
+                </div>
             </div>
-            <div class="skill-item">
-                <h3>Videomaker Artístico</h3>
-                <p>Produção de vídeos narrativos com edição impecável e storytelling visual.</p>
+        </section>
+
+        <!-- Página Trabalhos -->
+        <section id="trabalhos" class="page">
+            <div class="container">
+                <div class="section-title">
+                    <h2>MEUS TRABALHOS</h2>
+                </div>
+                <div class="works-filter">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="Registro Urbano">Registro Urbano</button>
+                    <button class="filter-btn" data-filter="ensaios">Ensaios</button>
+                    <button class="filter-btn" data-filter="eventos">Eventos</button>
+                    <button class="filter-btn" data-filter="viagens">Viagens</button>
+                </div>
+                <div class="works-grid">
+                    <!-- Itens de trabalhos serão adicionados via JavaScript -->
+                </div>
+                
+                <!-- Seção de Vídeos -->
+                <div class="videos-section">
+                    <div class="section-title">
+                        <h2>VÍDEOS</h2>
+                    </div>
+                    <div class="videos-grid">
+                        <div class="video-item">
+                            <div class="video-container">
+                                <video controls poster="Imagem/clei2.jpeg">
+                                    <source src="Video/VID-1.mp4" type="video/mp4">
+                                    Seu navegador não suporta o elemento de vídeo.
+                                </video>
+                            </div>
+                            <div class="video-content">
+                                <h3>Centro Histórico de São Luís (MA)</h3>
+                                <p>No coração do Centro Histórico a música toma conta das ruas. Entre azulejos antigos e alegria no ar, o samba ecoa e a cultura maranhense pulsa viva.</p>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-container">
+                                <video controls poster="Imagem/clei4.png">
+                                    <source src="Video/VID-2.mp4" type="video/mp4">
+                                    Seu navegador não suporta o elemento de vídeo.
+                                </video>
+                            </div>
+                            <div class="video-content">
+                                <h3>Casamento Joyce & Nicola</h3>
+                                <p>Cerimônia de casamento emocionante com momentos únicos de alegria e celebração do amor.</p>
+                            </div>
+                        </div>
+                        <div class="video-item">
+                            <div class="video-container">
+                                <video controls poster="Imagem/IMG_8.jpg">
+                                    <source src="Video/VID-3.mp4" type="video/mp4">
+                                    Seu navegador não suporta o elemento de vídeo.
+                                </video>
+                            </div>
+                            <div class="video-content">
+                                <h3>Ensaio Gestante</h3>
+                                <p>Sessão fotográfica delicada capturando a beleza e emoção da espera em ambiente sereno.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="skill-item">
-                <h3>Edição e Pós-Produção</h3>
-                <p>Transformação de imagens e vídeos em obras de arte com ferramentas de ponta.</p>
+        </section>
+
+        <!-- Página Contato -->
+        <section id="contato" class="page">
+            <div class="container">
+                <div class="section-title">
+                    <h2>CONTATO</h2>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>INFORMAÇÕES DE CONTATO</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Localização</h4>
+                                <p>São Luís - MA, Brasil</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Telefone/WhatsApp</h4>
+                                <p>(98) 98153-4901</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>scleilson09@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Horário de Atendimento</h4>
+                                <p>Segunda a Sábado: 8h às 20h</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>ENVIE UMA MENSAGEM</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para imagens -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img class="modal-img" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="essays">
-        <h2>Ensaios</h2>
-        <div class="essays-grid">
-            <div class="essays-column">
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1BsfhddjyuiQj73vkjcizPiTKnu3QYjqX" 
-                         data-fallback-id="1BsfhddjyuiQj73vkjcizPiTKnu3QYjqX"
-                         alt="Ensaio de casal nos Lencóis Maranhenses" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Ensaio de casal nos Lencóis Maranhenses onde a intensidade do amor encontra a imensidão da paisagem.</p>
-                </div>
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1y37LVLKi6uZf6cH6W475LmkGbymU4kHn" 
-                         data-fallback-id="1y37LVLKi6uZf6cH6W475LmkGbymU4kHn"
-                         alt="Sessão de retratos no centro histórico" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Sessão de retratos no centro histórico, destacando a essência vibrante da cidade com detalhes arquitetônicos.</p>
-                </div>
-            </div>
-            <div class="essays-column">
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1BOiEe7rPuw7YXvoF1FdnpSnu21QVZ18w" 
-                         data-fallback-id="1BOiEe7rPuw7YXvoF1FdnpSnu21QVZ18w"
-                         alt="Ensaio de família com união e alegria" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Ensaio de família que transmitem união e alegria.</p>
-                </div>
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1s54nrWRvz_8nQlVsTzhYD3eNBQWLifQ1" 
-                         data-fallback-id="1s54nrWRvz_8nQlVsTzhYD3eNBQWLifQ1"
-                         alt="Ensaio de casal em cenário natural" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Ensaio de casal, capturando a conexão e o amor em um cenário natural.</p>
-                </div>
-            </div>
-            <div class="essays-column">
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1PdJwesJt_cNcIw-oWwh9HvNL4Qr_YBBf" 
-                         data-fallback-id="1PdJwesJt_cNcIw-oWwh9HvNL4Qr_YBBf"
-                         alt="Ensaio de viagem capturando alegria e liberdade" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Ensaio de viagem, capturando a alegria e a liberdade da alma.</p>
-                </div>
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1kNdPJ-dFbZ7Cm8hUTcXxxH_uR_-6FWqj" 
-                         data-fallback-id="1kNdPJ-dFbZ7Cm8hUTcXxxH_uR_-6FWqj"
-                         alt="Sessão fotográfica de gestante em ambiente sereno" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Sessão fotográfica de gestante, capturando a beleza e a emoção da espera em um ambiente sereno.</p>
-                </div>
-            </div>
-            <div class="essays-column">
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1iKfX_ZMOz_VkZD2h6dbd4lfVA4rOVs2P" 
-                         data-fallback-id="1iKfX_ZMOz_VkZD2h6dbd4lfVA4rOVs2P"
-                         alt="Ensaio de viagem explorando paisagens exóticas" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Ensaio de viagem, explorando paisagens exóticas e capturando a essência da aventura.</p>
-                </div>
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1EO6ytZCu4KKKbSFD9D7ut72ZysVgMqZQ" 
-                         data-fallback-id="1EO6ytZCu4KKKbSFD9D7ut72ZysVgMqZQ"
-                         alt="Sessão de retratos Artísticos explorando identidade e estilo" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Sessão de retratos Artísticos, explorando a identidade e o estilo através da luz e da composição contemporânea.</p>
-                </div>
-            </div>
-            <div class="essays-column">
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1Htjk3isr4iWYilupO9RqtaiKegoGD56I" 
-                         data-fallback-id="1Htjk3isr4iWYilupO9RqtaiKegoGD56I"
-                         alt="Fotografia de Evento Cultural" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Fotografia de Evento Cultural: Capturando a energia, a tradição e a grandiosidade das celebrações populares.</p>
-                </div>
-                <div class="essay-item">
-                    <img loading="lazy" width="300" height="200" 
-                         src="https://drive.google.com/uc?id=1bwmZLs103B71z8jrh9JcMr26puA43IgH" 
-                         data-fallback-id="1bwmZLs103B71z8jrh9JcMr26puA43IgH"
-                         alt="Sessão de retratos artísticos com luzes e sombras" 
-                         class="essay-photo drive-img">
-                    <p class="essay-description">Sessão de retratos artísticos, explorando luzes e sombras para criar imagenes impactantes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="audiovisual">
-        <h2>Vídeos dos Ensaios</h2>
-        <div class="audiovisual-videos">
-            
-            <div class="video-container">
-                <iframe src="https://drive.google.com/file/d/18Ij9vVIejvkQ47rXjOm1nrUUcpEN41V2/preview" 
-                        class="audiovisual-video-iframe" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture" 
-                        allowfullscreen
-                        loading="lazy"
-                        title="Vídeo de Ensaio 1">
-                </iframe>
-            </div>
-            
-            <div class="video-container">
-                <iframe src="https://drive.google.com/file/d/1Cibv_ZOX0ZBPFWXYvlhOy0jIWrSrIB7v/preview" 
-                        class="audiovisual-video-iframe" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture" 
-                        allowfullscreen
-                        loading="lazy"
-                        title="Vídeo de Ensaio 2">
-                </iframe>
-            </div>
-            
-            <div class="video-container">
-                <iframe src="https://drive.google.com/file/d/1eIfQ4NBoCEt9OhpJqMjVdIYgKalCSWPB/preview" 
-                        class="audiovisual-video-iframe" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture" 
-                        allowfullscreen
-                        loading="lazy"
-                        title="Vídeo de Ensaio 3">
-                </iframe>
-            </div>
-        </div>
-        
-        <p>Se você procura alguém que combine profissionalismo, sensibilidade artística e criatividade para transformar suas ideias em experiências visuais memoráveis, você está no lugar certo.</p>
-        <p>Vamos juntos transformar seus momentos em histórias que serão lembradas para sempre.</p>
-        <div class="call-to-action">Entre em Contato</div>
-        <a href="https://wa.me/5598981534901" class="contact-button">Fale Comigo</a>
-    </section>
-
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p>© 2025 Cleilson Santos</p>
-            <p><a href="mailto:scleilson09@gmail.com">scleilson09@gmail.com</a></p>
-            <div class="phone-number">
-                <i class="fab fa-whatsapp"></i>
-                <span>(98) 98153-4901</span>
+            <div class="logo">CLEI<span>SANTOS</span></div>
+            <p>Fotógrafo profissional especializado em capturar os melhores momentos da sua vida</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/cleisanntos?igsh=b2tyY2E1cXN0amd5" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://wa.me/5598981534901" class="social-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
             </div>
-            <div class="social-icons">
-                <a href="#" target="_blank" aria-label="Acesse o Facebook de Cleilson Santos"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" aria-label="Acesse o Instagram de Cleilson Santos"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" aria-label="Acesse o canal de Cleilson Santos no YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" aria-label="Acesse o TikTok de Cleilson Santos"><i class="fab fa-tiktok"></i></a>
-            </div>
+            <p class="copyright">&copy; 2024 CleiSantos Fotografia. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Função de Fallback para tentar carregar imagens do Google Drive em navegadores restritivos (como Safari)
-        document.addEventListener('DOMContentLoaded', () => {
-            const driveImages = document.querySelectorAll('.drive-img');
-            
-            driveImages.forEach(img => {
-                // 1. Ouve o evento de erro (a imagem falhou ao carregar)
-                img.addEventListener('error', () => {
-                    const fileId = img.getAttribute('data-fallback-id');
-                    
-                    if (fileId) {
-                        // 2. Tenta a URL de preview/visualização que é menos restritiva
-                        const fallbackUrl = `https://drive.google.com/thumbnail?id=${fileId}&sz=w800-h800`;
-                        
-                        // 3. Verifica se a imagem ainda não está tentando o fallback para evitar loops
-                        if (img.src.indexOf('thumbnail') === -1) {
-                            console.log(`Tentando fallback para a imagem: ${fileId}`);
-                            img.src = fallbackUrl;
-                            
-                            // Adiciona um listener de erro para a segunda tentativa
-                            img.addEventListener('error', () => {
-                                console.error(`Falha total ao carregar a imagem do Drive: ${fileId}. Verifique permissões.`);
-                                // Define uma imagem substituta simples em caso de falha total
-                                img.style.backgroundColor = '#666'; 
-                                img.src = 'data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f4d03f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera-off"><line x1="1" y1="1" x2="23" y2="23"></line><path d="M21 21H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3m6 0h2l2-3h3a2 2 0 0 1 2 2v8M11 11a3 3 0 1 1-6 0"></path></svg>';
-                                img.style.objectFit = 'contain';
-                            }, { once: true });
-                        }
+        // Dados para o portfólio do CleiSantos
+        const portfolioItems = [
+            {
+                id: 1,
+                title: "Ensaio Casal - Lencóis Maranhenses",
+                category: "ensaios",
+                image: "Imagem/IMG_1.jpg",
+                description: "Ensaio romântico de casal nos belíssimos Lençóis Maranhenses, capturando o amor em meio às dunas e lagoas."
+            },
+            {
+                id: 2,
+                title: "Centro Histórico",
+                category: "ensaios",
+                image: "Imagem/IMG_10.jpg",
+                description: "Sessão de retratos Artísticos, explorando a identidade e o estilo através da luz e da composição contemporânea."
+            },
+            {
+                id: 3,
+                title: "Ensaio Gestante",
+                category: "ensaios",
+                image: "Imagem/IMG_8.jpg",
+                description: "Sessão fotográfica delicada capturando a beleza e emoção da espera em ambiente sereno."
+            },
+            {
+                id: 4,
+                title: "Evento Cultural",
+                category: "eventos",
+                image: "Imagem/IMG_5.jpg",
+                description: "Cobertura completa de evento cultural mostrando a energia e tradição das celebrações populares."
+            },
+            {
+                id: 5,
+                title: "Ensaio Família",
+                category: "ensaios",
+                image: "Imagem/IMG_2.jpg",
+                description: "Sessão familiar cheia de amor e alegria, eternizando os laços e momentos especiais."
+            },
+            {
+                id: 6,
+                title: "Viagem - Pousada Cocal",
+                category: "viagens",
+                image: "Imagem/IMG_4.jpg",
+                description: "Luz dourada, silhuetas e a tranquilidade do fim de tarde. Um instante comum transformado em poesia visual, onde a atmosfera fala mais do que as palavras."
+            }
+        ];
+
+        // Dados para os trabalhos do CleiSantos
+        const workItems = [
+            {
+                id: 1,
+                title: "ENSAIO DE CASAL NOS LENÇÓIS MARANHENSES",
+                category: "viagens",
+                image: "Imagem/IMG_1.jpg",
+                description: "Ensaio de casal nos Lencóis Maranhenses onde a intensidade do amor encontra a imensidão da paisagem.",
+                tags: ["Casal", "Amor", "Viagem"]
+            },
+            {
+                id: 2,
+                title: "CENTRO HISTÓRICO",
+                category: "Registro Urbano",
+                image: "Imagem/IMG_10.jpg",
+                description: "Sessão de retratos artísticos, explorando luzes e sombras para criar imagenes impactantes.",
+                tags: ["Street", "Cotidiano", "Horizonte"]
+            },
+            {
+                id: 3,
+                title: "ENSAIOS DE FAMÍLIA COM UNIÃO E ALEGRIA",
+                category: "eventos",
+                image: "Imagem/IMG_2.jpg",
+                description: "Ensaio de família que transmitem união e alegria.",
+                tags: ["Família", "Conexão", "Amor"]
+            },
+            {
+                id: 4,
+                title: "ENSAIO LIFESTYLE",
+                category: "ensaios",
+                image: "Imagem/IMG_7.jpg",
+                description: "Sessão lifestyle capturando a autenticidade e conexão do casal em cenário natural. Fotos espontâneas que revelam a verdadeira essência do relacionamento.",
+                tags: ["Lifestyle", "Natural", "Casal"]
+            },
+            {
+                id: 5,
+                title: "FESTIVAL CULTURAL",
+                category: "eventos",
+                image: "Imagem/IMG_5.jpg",
+                description: "Cobertura completa do maior festival cultural da região. Registrei a energia, as cores e a emoção dos participantes em cada momento especial do evento.",
+                tags: ["Evento", "Cultural", "Festival"]
+            },
+            {
+                 id: 6,
+                title: "ENSAIO DE VIAGEM CAPTURANDO ALEGRIA E LIBERDADE",
+                category: "viagens",
+                image: "Imagem/IMG_3.jpg",
+                description: "Ensaio de viagem, capturando a alegria e a liberdade da alma.",
+                tags: ["Liberdade", "Jornada", "Viagem"]
+            },
+            {
+                       id: 7,
+                title: "SESSÃO DE RETRATO ARTÍSTICO EXPLORANDO IDENTIDADE E ESTILO",
+                category: "ensaios",
+                image: "Imagem/IMG_9.jpg",
+                description: "Sessão de retratos Artísticos, explorando a identidade e o estilo através da luz e da composição contemporânea.",
+                tags: ["Inspiração", "Beleza", "Serenidade"]
+            },
+            {
+                              id: 8,
+                title: "SESSÃO DE RETRATO NO CENTRO HISTÓRICO",
+                category: "Registro Urbano",
+                image: "Imagem/IMG_6.png",
+                description: "Sessão de retratos no centro histórico, destacando a essência vibrante da cidade com detalhes arquitetônicos.",
+                tags: ["Inspiração", "Beleza", "Serenidade"]
+            },
+            {
+                id: 9,
+                title: "EXPEDIÇÃO FOTOGRÁFICA",
+                category: "viagens",
+                image: "Imagem/IMG_4.jpg",
+                description: "Série fotográfica documental durante expedição por paisagens exóticas. Cada imagem conta uma história de descoberta e conexão com a natureza.",
+                tags: ["Viagem", "Documental", "Natureza"]
+            }
+        ];
+
+        // Elementos DOM
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const nav = document.querySelector('nav');
+        const portfolioGrid = document.querySelector('.portfolio-grid');
+        const worksGrid = document.querySelector('.works-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.querySelector('.modal-img');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalClose = document.querySelector('.modal-close');
+        const contactForm = document.getElementById('contactForm');
+
+        // Navegação entre páginas
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('data-page');
+                
+                // Atualizar navegação ativa
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Mostrar página correspondente
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                    if (page.id === pageId) {
+                        page.classList.add('active');
                     }
                 });
+                
+                // Fechar menu mobile se estiver aberto
+                if (window.innerWidth <= 768) {
+                    nav.classList.remove('active');
+                }
+                
+                // Scroll para o topo
+                window.scrollTo(0, 0);
             });
+        });
+
+        // Menu mobile
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Carregar portfólio
+        function loadPortfolio() {
+            portfolioGrid.innerHTML = '';
+            portfolioItems.forEach(item => {
+                const portfolioItem = document.createElement('div');
+                portfolioItem.className = 'portfolio-item fade-in';
+                portfolioItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+                portfolioItem.addEventListener('click', () => openModal(item));
+                portfolioGrid.appendChild(portfolioItem);
+            });
+        }
+
+        // Carregar trabalhos
+        function loadWorks(filter = 'all') {
+            worksGrid.innerHTML = '';
+            const filteredItems = filter === 'all' 
+                ? workItems 
+                : workItems.filter(item => item.category === filter);
+            
+            filteredItems.forEach((item, index) => {
+                const workItem = document.createElement('div');
+                workItem.className = 'work-item';
+                workItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="work-img">
+                    <div class="work-content">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                        <div class="work-tags">
+                            ${item.tags.map(tag => `<span class="work-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                workItem.addEventListener('click', () => openModal(item));
+                worksGrid.appendChild(workItem);
+            });
+        }
+
+        // Filtro de trabalhos
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+                loadWorks(filter);
+            });
+        });
+
+        // Modal para imagens
+        function openModal(item) {
+            modalImg.src = item.image;
+            modalTitle.textContent = item.title;
+            modalDescription.textContent = item.description || '';
+            modal.style.display = 'flex';
+        }
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Formulário de contato - Enviar para WhatsApp
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Formatar mensagem para WhatsApp
+            const whatsappMessage = `Olá CleiSantos! Meu nome é ${name}. ${subject}. ${message}. Meu email é ${email}.`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Redirecionar para WhatsApp
+            window.open(`https://wa.me/5598981534901?text=${encodedMessage}`, '_blank');
+            
+            // Limpar formulário
+            contactForm.reset();
+        });
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPortfolio();
+            loadWorks();
         });
     </script>
 </body>
